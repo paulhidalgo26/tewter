@@ -2,6 +2,7 @@ package routers
 
 import (
 	"errors"
+
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"
@@ -19,14 +20,15 @@ var IDUsauario string
 func ProcesoToken(tk string) (*models.Clain, bool, string, error) {
 	miClave := []byte("Secret")
 	claims := &models.Clain{}
-	splitToken := strings.Split(tk, "Bearer")
-	if len(splitToken) != 2 {
-		return claims, false, string(""), errors.New("fromato de token invalido")
-	}
-	tk = strings.TrimSpace(splitToken[1])
+	// splitToken := strings.Split(tk,"Bearer")
+	// if len(splitToken) != 2 {
+	// 	return claims, false, string(""), errors.New("fromato de token invalido")
+	// }
+	tk = strings.TrimSpace(tk)
 	tkn, err := jwt.ParseWithClaims(tk, claims, func(token *jwt.Token) (interface{}, error) {
 		return miClave, nil
 	})
+
 	if err == nil {
 		_, encontrado, _ := bd.ChequeYaExisteUsuario(claims.Email)
 		if encontrado {
@@ -35,9 +37,11 @@ func ProcesoToken(tk string) (*models.Clain, bool, string, error) {
 		}
 		return claims, encontrado, IDUsauario, nil
 	}
+
 	if !tkn.Valid {
 		return claims, false, string(""), errors.New("token invalido")
 	}
+
 	return claims, false, string(""), err
 
 }
