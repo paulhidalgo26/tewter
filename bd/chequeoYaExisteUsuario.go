@@ -9,8 +9,7 @@ import (
 )
 
 // ChequeYaExisteUsuario recibe un email de parametro y chequea si ya existe en la base de datos
-
-func ChequeYaExisteUsuario(emai string) (models.Usuario, bool, string) {
+func ChequeYaExisteUsuario(email string) (models.Usuario, bool, string) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
@@ -18,7 +17,7 @@ func ChequeYaExisteUsuario(emai string) (models.Usuario, bool, string) {
 	db := MongoCN.Database("twiter")
 	col := db.Collection("usuarios")
 
-	condicion := bson.M{"email": emai}
+	condicion := bson.M{"email": email}
 
 	var resultado models.Usuario
 

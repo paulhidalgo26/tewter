@@ -2,8 +2,9 @@ package main
 
 import (
 	"log"
-"github.com/paulhidalgo26/tewter/bd"
-	
+
+	"github.com/paulhidalgo26/tewter/bd"
+
 	"github.com/paulhidalgo26/tewter/handlers"
 )
 

@@ -8,15 +8,15 @@ import (
 
 //Usuario es el modelo de los usuarioss de la baser de datos
 type Usuario struct {
-	ID              primitive.ObjectID `bson:"_id,omitempy" json:"id"`
-	Nombre          string             `bson:"nombre" json:"nombre,omitempy"`
-	Apellidos       string             `bson:"apellidos" json:"apellidos,omitempy"`
-	FechaNacimiento time.Time          `bson:"fechaNacimiento" json:"fechaNacimiento,omitempy"`
-	Email           string             `bson:"email" json:"email,omitempy"`
-	Password        string             `bson:"password" json:"password,omitempy"`
-	Avatar          string             `bson:"avatar" json:"avatar,omitempy"`
-	Banner          string             `bson:"banner" json:"banner,omitempy"`
-	Biografia       string             `bson:"biografia" json:"biografia,omitempy"`
-	Ubicacion       string             `bson:"ubicacion" json:"ubicacion,omitempy"`
-	SitioWeb        string             `bson:"sitioWeb" json:"sitioWeb,omitempy"`
+	ID              primitive.ObjectID `bson:"_id,omitempty" json:"id"`
+	Nombre          string             `bson:"nombre" json:"nombre,omitempty"`
+	Apellidos       string             `bson:"apellidos" json:"apellidos,omitempty"`
+	FechaNacimiento time.Time          `bson:"fechaNacimiento" json:"fechaNacimiento,omitempty"`
+	Email           string             `bson:"email" json:"email,omitempty"`
+	Password        string             `bson:"password" json:"password,omitempty"`
+	Avatar          string             `bson:"avatar" json:"avatar,omitempty"`
+	Banner          string             `bson:"banner" json:"banner,omitempty"`
+	Biografia       string             `bson:"biografia" json:"biografia,omitempty"`
+	Ubicacion       string             `bson:"ubicacion" json:"ubicacion,omitempty"`
+	SitioWeb        string             `bson:"sitioWeb" json:"sitioWeb,omitempty"`
 }
