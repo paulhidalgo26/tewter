@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+//LeerTweetSeguidores leo los tweet de mis seguidores
 func LeerTweetSeguidores(ID string, pagina int) ([]models.DevuelvoTweetsSeguidores, bool) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
@@ -24,7 +25,7 @@ func LeerTweetSeguidores(ID string, pagina int) ([]models.DevuelvoTweetsSeguidor
 	condiciones = append(condiciones, bson.M{
 		"$lookup": bson.M{
 			"from":         "tweet",
-			"lacalField":   "usuariorelacionid",
+			"localField":   "usuariorelacionid",
 			"foreignField": "userid",
 			"as":           "tweet",
 		}})
